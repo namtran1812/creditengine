@@ -1,0 +1,29 @@
+version: 2
+run:
+  timeout: 3m
+
+linters:
+  enable:
+    - govet
+    - staticcheck
+    - errcheck
+    - unused
+  disable:
+    - gocyclo
+    - goconst
+    - funlen
+
+linters-settings:
+  errcheck:
+    exclude:
+      - "fmt:.*"
+
+issues:
+  exclude-use-default: false
+  exclude:
+    - "should have comment or be unexported"
+
+exclude:
+  - "migrations/.*"
+  - "Dockerfile"
+  - "README.md"
